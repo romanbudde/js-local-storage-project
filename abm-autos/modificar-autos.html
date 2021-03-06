@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar usuario</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+
+        <form>
+            <div>
+                <label for="usuario">Usuario: </label>
+                <span id="usuario"></span>
+            </div>
+            <div>
+                <label for="nuevoUsuario">Nuevo usuario: </label>
+                <input type="text" id="nuevoUsuario">
+            </div>
+            <div>
+                <label for="pass">Contrasena: </label>
+                <span id="pass"></span>
+            </div>
+            <div>
+                <label for="nuevaContrasena">Nueva contrasena: </label>
+                <input type="text" id="nuevaContrasena">
+            </div>
+            <div>
+                <label for="mail">Mail: </label>
+                <span id="mail"></span>
+            </div>
+            <div>
+                <label for="nuevoMail">Nuevo mail: </label>
+                <input type="text" id="nuevoMail">
+            </div>
+            <div>
+                <label for="genero">Genero: </label>
+                <span id="genero"></span>
+            </div>
+            <div>
+                <p>Cambiar a:</p>
+                <select name="genero" id="nuevoGenero">
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            <div>
+                <label for="celular">Telefono: </label>
+                <span id="celular"></span>
+            </div>
+            <div>
+                <label for="nuevoUsuario">Nuevo telefono: </label>
+                <input type="text" id="nuevoCelular">
+            </div>
+            <div>
+                <label for="admin">Es administrador: </label>
+                <span id="admin"></span>
+            </div>
+            <div>
+                <p>Cambiar "es administrador" a:</p>
+                <input type="radio" id="nuevoAdmin" name="admin">
+                <label for="admin">Si</label>
+                <input type="radio" name="admin">
+                <label for="admin">No</label>
+            </div>
+            <div>
+                <button onclick="guardarCambios(event)">Guardar cambios</button>
+                <button onclick="volverAListaUsuariosAModificar(event)">Volver a la lista</button>
+            </div>
+        </form>
+    </div>
+    <script src="funciones-globales.js"></script>
+    <script src="modificar-usuario.js"></script>
+</body>
+</html>

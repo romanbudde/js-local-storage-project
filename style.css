@@ -1,0 +1,77 @@
+body{
+    margin: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: antiquewhite;
+    border-radius:20px;
+    padding: 40px;
+}
+
+div{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+table{
+    border: 1px solid rgb(0, 0, 0);
+    border-spacing: 0px;
+}
+
+th,td,tr{
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px 8px;
+}
+
+button{
+    border:1px solid rgb(0, 0, 0);
+    padding: 8px 8px;
+    border-radius: 20px;
+    background-color: inherit;
+    cursor:pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+button:hover{
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 8px 11px;
+}
+
+button:focus{
+    outline: none;
+}
+
+.content-container{
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0 40px;
+    border-radius: 20px;
+}
+
+#genero{
+    padding:3px 3px;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+}
