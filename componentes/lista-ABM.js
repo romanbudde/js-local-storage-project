@@ -11,42 +11,49 @@ function getTemplate(titulo, arrayTitulos, lista, funcionEspecifica) {
             <th scope="col">${arrayTitulos[i]}</th>            
         `;
     }
-    
-    lista.forEach(item => {
+    texto += `
+            <th scope="col">Modificar</th>       
+            <th scope="col">Eliminar</th>     
+        `;
+    lista.forEach((item, i) => {
+        list += `<tr><td>${i+1}</td>`;
+        // i arranca en 1 porque en 0 tiene el valor de indice, q seria el atributo '#'
+        for(i = 1; i < arrayTitulos.length; i++){
+            list += `
+                    <td>${item[arrayTitulos[i]]}</td>
+            `;
+        }
         list += `
-            <tr>
-                <td>${item.id}</td>            
-                <td>${item.nombre}</td>            
-            </tr>
+            <td><button class="btn-modificar">Modificar</button></td>
+            <td><button class="btn-eliminar">Eliminar</button></td>
+        </tr>
         `;
     });
 
 
-    var info = `
-    <div class="container bg-white p-5">
-        <div class="d-flex justify-content-between align-items-center mb-4">
+    let info = `
+        <div class="d-flex justify-content-between align-items-center mb-4 title-container">
             <button id="backToPerfil" onclick="clickB1(${funcionEspecifica});">
-                <i class="far fa-arrow-left">Botton 1</i>
+                <i class="far fa-arrow-left">Volver a mi perfil</i>
             </button>
             <h1 class="text-center">${titulo}</h1>
             <button id="addCar" onclick="clickB2()">
-                Boton 2
+                +
             </button>
         </div>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                ${texto}
-            </tr>
-        </thead>
-        <tbody>
-            ${list}
-        </tbody>
-    </table>
-    </div>
-`;
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    ${texto}
+                </tr>
+            </thead>
+            <tbody>
+                ${list}
+            </tbody>
+        </table>
+    `;
 
-return info;
+    return info;
 }
 
 function clickB1(f1) {
@@ -54,5 +61,5 @@ function clickB1(f1) {
 }
 
 function clickB2() {
-    alert('alert2');
+    alert('agregar');
 }

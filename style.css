@@ -4,7 +4,7 @@ body{
     font-size: 15px;
 }
 
-form{
+form, .form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,8 +48,16 @@ button{
     font-family: inherit;
 }
 
+.btn-modificar{
+    background-color: rgb(110, 202, 102);
+}
+
+.btn-eliminar{
+    background-color: rgb(255, 88, 88);
+}
+
 button:hover{
-    background-color: rgba(0, 0, 0, 0.05);
+    opacity: 80%;
     padding: 8px 11px;
 }
 
@@ -65,6 +73,23 @@ button:focus{
     justify-content: center;
     padding: 30px 0 40px;
     border-radius: 20px;
+}
+
+.title-container{
+    justify-content: center;
+    align-items: center;
+    gap: 7%;
+}
+
+#tablaABM{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    text-align: center;
 }
 
 #genero{

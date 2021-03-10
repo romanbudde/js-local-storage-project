@@ -1,5 +1,6 @@
 window.onload = function(){
-    let usuarioAModificar = getUsuarioAModificar();
+    
+    let usuarioAModificar = getItem("usuarioAModificar");
 
     document.getElementById("usuario").innerHTML = usuarioAModificar.user;
     document.getElementById("pass").innerHTML = usuarioAModificar.pass;
@@ -16,8 +17,8 @@ window.onload = function(){
 
 function guardarCambios(e){
     debugger;
-    let listaUsuarios = getListaUsuarios();
-    let usuarioAModificar = getUsuarioAModificar();
+    let listaUsuarios = getLista("listaUsuarios");
+    let usuarioAModificar = getItem("usuarioAModificar");
     let nuevoUsuario = document.getElementById("nuevoUsuario").value;
     let nuevaContrasena = document.getElementById("nuevaContrasena").value;
     let nuevoMail = document.getElementById("nuevoMail").value;

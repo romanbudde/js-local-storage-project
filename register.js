@@ -51,8 +51,11 @@ function registrarUsuario(inputUsuario, listaUsuarios){
 }
 
 function registrarme(e){
-    let listaUsuarios = getListaUsuarios();
-    console.log(listaUsuarios);
+    let listaUsuarios = getLista("listaUsuarios");
+    if(listaUsuarios.length === 0){
+        hardcodearUsers(listaUsuarios);
+        listaUsuarios = getLista("listaUsuarios");
+    }
     let inputUsuario = obtenerDatos();
     let siExiste = usuarioExiste(listaUsuarios, inputUsuario);
     if (siExiste){
@@ -60,7 +63,8 @@ function registrarme(e){
     }
     else{
         if(registrarUsuario(inputUsuario, listaUsuarios)){
-            guardarUser(inputUsuario);
+            // guardarUser(inputUsuario);
+            guardarEnLS("usuario", inputUsuario)
             alert("Registrado.");
             if(inputUsuario.admin){
                 window.location.href = "./perfil-admin.html";
