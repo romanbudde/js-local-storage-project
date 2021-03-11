@@ -46,12 +46,14 @@ window.onload = function(){
     }
     let titulos = ["#", "Modelo", "Marca", "Precio", "Segmento", "Color", "HP"];
 
-    const funcionEspecifica = () => {
-        // console.log('llamada');
-        alert("autos a modificar");
-    }
 
     renderizarHTML(tablaABM, titulo, lista, titulos, funcionEspecifica);
     agregarEventListenerABotones(lista, "autoAModificar", "listaAutos", 
                                 "Modelo", "./modificar-auto.html");
+}
+
+
+function funcionEspecifica(){
+    // console.log('llamada');
+    alert("autos a modificar");
 }

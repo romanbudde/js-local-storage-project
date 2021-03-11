@@ -1,8 +1,46 @@
-function renderizarHTML(tablaABM, titulo, lista, arrayTitulos, funcionEspecifica) {
-    tablaABM.innerHTML += getTemplate(titulo, arrayTitulos, lista, funcionEspecifica);    
+function renderizarHTML_Lista(tablaABM, titulo, lista, arrayTitulos, funcionEspecifica,funcionEliminar,funcionModificar) {
+    //genero HTML
+    tablaABM.innerHTML = getTemplate(titulo, arrayTitulos, lista); 
+    //bindeo eventos
+    
+    document.getElementById('backToPerfil').addEventListener('click',(e)=>{
+        //TODO: logica propia el componente
+
+        //posibles valores devueltos a la funcion
+        let dataDinamica=[1,2,"tres",4];
+        funcionEspecifica(dataDinamica);
+
+    });
+
+    document.querySelectorAll('.btn-modificar').forEach((item) =>{
+        item.addEventListener('click',(e)=>{
+            //TODO: logica propia el componente
+            debugger
+            let btn = e.target;
+    
+            let id = btn.dataset.id;
+            let nombre = btn.dataset.name;
+            funcionModificar({id,nombre});
+    
+        });
+    }); 
+
+    document.querySelectorAll('.btn-eliminar').forEach((item) =>{
+        item.addEventListener('click',(e)=>{
+            //TODO: logica propia el componente
+            debugger
+            let btn = e.target;
+    
+            let id = btn.dataset.id;
+            let nombre = btn.dataset.name;
+            funcionEliminar({id,nombre});
+    
+        });
+    });
+
 }
 
-function getTemplate(titulo, arrayTitulos, lista, funcionEspecifica) {
+function getTemplate(titulo, arrayTitulos, lista) {
     let texto = '';
     let list = '';
 
@@ -23,9 +61,10 @@ function getTemplate(titulo, arrayTitulos, lista, funcionEspecifica) {
                     <td>${item[arrayTitulos[i]]}</td>
             `;
         }
+        
         list += `
-            <td><button class="btn-modificar">Modificar</button></td>
-            <td><button class="btn-eliminar">Eliminar</button></td>
+            <td><button data-id="${item.id}" data-name="${item.nombre}" class="btn-modificar">Modificar</button></td>
+            <td><button data-id="${item.id}" data-name="${item.nombre}" class="btn-eliminar">Eliminar</button></td>
         </tr>
         `;
     });
@@ -33,7 +72,7 @@ function getTemplate(titulo, arrayTitulos, lista, funcionEspecifica) {
 
     let info = `
         <div class="d-flex justify-content-between align-items-center mb-4 title-container">
-            <button id="backToPerfil" onclick="clickB1(${funcionEspecifica});">
+            <button id="backToPerfil" >
                 <i class="far fa-arrow-left">Volver a mi perfil</i>
             </button>
             <h1 class="text-center">${titulo}</h1>
@@ -54,12 +93,4 @@ function getTemplate(titulo, arrayTitulos, lista, funcionEspecifica) {
     `;
 
     return info;
-}
-
-function clickB1(f1) {
-    f1();
-}
-
-function clickB2() {
-    alert('agregar');
 }

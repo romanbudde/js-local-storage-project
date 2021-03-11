@@ -1,11 +1,31 @@
+var redirect = "lista-autos-a-modificar.html";
+var autoAModificar = getItem("autoAModificar");
+var atributos = ["Modelo", "Marca", "Precio", "Segmento", "Color", "HP"];
+var atributosType = ["text", "text", "number", "text", "color", "number"]
+var container = document.getElementById("content-container");
+var listaAutos = getLista("listaAutos");
+
+
+//Desde este lugar generico tenemos la logica a ejecutarse cuando se llame del componente
+function  guardarCambiosAuto(itemModificado){
+
+    debugger;
+    console.log(itemModificado)
+    
+    // // crear un nuevo item con los datos de los inputs
+    // debugger;
+    // for (i = 0; i < arrayAtributos.length; i++){
+    //     console.log("a");
+    //     itemAModificar[arrayAtributos[i]] = document.getElementById(arrayAtributos[i].value);
+    // }
+    // lista[itemAModificar[indice]] = itemAModificar;
+    // guardarEnLS("listaAutos", lista);
+    // console.log(itemAModificar);
+    // e.preventDefault();
+   
+}
+
 window.onload = function(){
-    autoAModificar = getItem("autoAModificar");
-    let atributos = ["Modelo", "Marca", "Precio", "Segmento", "Color", "HP"];
-    let atributosType = ["text", "text", "number", "text", "color", "number"]
-    let container = document.getElementById("content-container");
-    let listaAutos = getLista("listaAutos");
-    redirect = "lista-autos-a-modificar.html";
-    renderizarHTML(container, listaAutos, atributos, atributosType, autoAModificar, redirect);
-    agregarEventListenerABotones(listaAutos, autoAModificar, "listaAutos", "Modelo", 
-                                "./lista-autos-a-modificar.html");
+    renderizarHTML(container, listaAutos, atributos, atributosType, autoAModificar, redirect,guardarCambiosAuto);
+    // agregarEventListenerABotones(listaAutos, autoAModificar, "listaAutos", "Modelo","./lista-autos-a-modificar.html");
 }
